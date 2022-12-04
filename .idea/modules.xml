@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Polynom/Polynom.iml" filepath="$PROJECT_DIR$/Polynom/Polynom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Prog1-Aufgaben.iml" filepath="$PROJECT_DIR$/Prog1-Aufgaben.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Rational/Rational.iml" filepath="$PROJECT_DIR$/Rational/Rational.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Weg/Weg.iml" filepath="$PROJECT_DIR$/Weg/Weg.iml" />
+    </modules>
+  </component>
+</project>
