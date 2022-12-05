@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class Polynom {
+
     private static int anzahl = 0;
     private double[] koeffizienten;
 
@@ -14,7 +15,7 @@ public class Polynom {
             normalisiert--;
         }
         if (normalisiert >= 0) {
-            this.koeffizienten = Arrays.copyOfRange(koeffizienten, 0, normalisiert+1);
+            this.koeffizienten = Arrays.copyOfRange(koeffizienten, 0, normalisiert + 1);
         } else {
             this.koeffizienten = new double[1];
             this.koeffizienten[0] = 0;
@@ -26,11 +27,19 @@ public class Polynom {
     public String toString() {
         String polynom = "";
         for (int i = koeffizienten.length - 1; i >= 0; i--) {
-            if (koeffizienten[i] == 0) continue;
-            if (polynom.length() > 0) polynom += " + ";
-            if (i > 1) polynom += koeffizienten[i] + "*x^" + i;
-            else if (i == 1) polynom += koeffizienten[i] + "*x^1";
-            else polynom += koeffizienten[i] + "*x^0";
+            if (koeffizienten[i] == 0) {
+                continue;
+            }
+            if (polynom.length() > 0) {
+                polynom += " + ";
+            }
+            if (i > 1) {
+                polynom += koeffizienten[i] + "*x^" + i;
+            } else if (i == 1) {
+                polynom += koeffizienten[i] + "*x^1";
+            } else {
+                polynom += koeffizienten[i] + "*x^0";
+            }
         }
         return polynom;
     }
