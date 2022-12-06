@@ -43,49 +43,44 @@ public class WebShop {
     public String bestellen(Kunde kunde, String[] einkaufsliste) {
         StringBuilder out = new StringBuilder();
         double gesamtpreis = 0.0;
-        int i = 0;
+        double rabatt = 1.0;
         if (kunde instanceof GuterKunde gk) {
             out.append("Rechnung fuer unseren guten Kunden ")
                 .append(gk.getVorname()).append(" ")
                 .append(gk.getNachname())
-                .append(", Preisnachlass: ")
-                .append(gk.getRabattInProzent()).append("%:\n");
-            for (String artikel : einkaufsliste) {
-                for (Artikel value : lager) {
-                    if ((value != null) && value.getName().equals(artikel)) {
-                        if (value.getAnzahl() > 0) {
-                            out.append(value.getName()).append(" : ")
-                                .append(value.getPreis() * (1 - gk.getRabatt())).append("\n");
-                            value.setAnzahl(value.getAnzahl() - 1);
-                            gesamtpreis += value.getPreis() * (1 - gk.getRabatt());
-                        } else {
-                            out.append(artikel).append(" : nicht mehr vorhanden\n");
-                        }
-                    }
-                }
-                out.append(artikel).append(" : nicht gefunden\n");
+                .append(", Preisnachlass ")
+                .append(gk.getRabattInProzent()).append(":\n");
+            rabatt = 1-gk.getRabatt();
             }
-        } else {
+        else {
             out.append("Rechnung fuer ")
                 .append(kunde.getVorname()).append(" ")
                 .append(kunde.getNachname()).append(":\n");
-            for (String artikel : einkaufsliste) {
-                for (Artikel value : lager) {
-                    if ((value != null) && value.getName().equals(artikel)) {
-                        if (value.getAnzahl() > 0) {
-                            out.append(value.getName()).append(" : ").append(value.getPreis())
-                                .append("\n");
-                            value.setAnzahl(value.getAnzahl() - 1);
-                            gesamtpreis += value.getPreis();
-                        } else {
-                            out.append(artikel).append(" : nicht mehr vorhanden\n");
-                        }
-                        i++;
+        }
+        for (int i = 0; i < einkaufsliste.length; i++) {
+            String artikel = einkaufsliste[i];
+            boolean gelistet = false;
+
+            for (int j = 0; j < lager.length; j++) {
+                Artikel value = lager[j];
+                if ((value != null) && value.getName().equals(artikel)) {
+                    if (value.getAnzahl() > 0) {
+                        out.append(value.getName()).append(" : ").append(value.getPreis()*rabatt)
+                            .append("\n");
+                        value.setAnzahl(value.getAnzahl() - 1);
+                        gesamtpreis += value.getPreis()*rabatt;
+                    } else {
+                        out.append(artikel).append(" : nicht mehr vorhanden\n");
                     }
+                    gelistet = true;
                 }
+            }
+            if (!gelistet) {
                 out.append(artikel).append(" : nicht gefunden\n");
             }
         }
+        out.append("Gesamtpreis : ").append(gesamtpreis).append("\n");
+
         return out.toString();
     }
 }
