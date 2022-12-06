@@ -16,11 +16,11 @@ public class Stadion {
             spieler[i - 1] = new Fussballspieler("Spieler-blau-" + (i), 20000 * i);
         }
         Mannschaft blau = new Mannschaft(spieler);
-        System.out.println(rot.toString());
-        System.out.println(blau.toString());
+        System.out.println(rot);
+        System.out.println(blau);
         System.out.println(rot.einkommen());
         System.out.println(blau.einkommen());
-        System.out.println(zuschauer[0].toString());
+        System.out.println(zuschauer[0]);
 
     }
 
