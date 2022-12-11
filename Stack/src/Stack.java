@@ -9,27 +9,25 @@ public class Stack {
     }
 
     public void push(Object o) {
-        Object tmp = this.stack[this.maxSize - 1];
-        for (int i = 0; i < maxSize - 1; i++) {
-            stack[i] = stack[i + 1];
+        for (int i = 0; i < stack.length; i++) {
+            if(stack[i] == null) {
+                stack[i] = o;
+                return;
+            }
         }
-        stack[maxSize - 1] = o;
     }
 
     public Object pop() {
-        if (this.isEmpty()) {
-            return null;
+        for (int i = maxSize - 1; i >= 0; i--) {
+            if (stack[i] != null) {
+                Object tmp = stack[i];
+                stack[i] = null;
+                return tmp;
+            }
         }
-        Object o = stack[maxSize - 1];
-        stack[maxSize - 1] = null;
-        Object tmp;
-        for (int i = maxSize - 1; i > 0; i--) {
-            tmp = stack[i - 1];
-            stack[i - 1] = null;
-            stack[i] = tmp;
-        }
-        return o;
+        return null;
     }
+
 
     public boolean isEmpty() {
         for (int i = 0; i < maxSize; i++) {

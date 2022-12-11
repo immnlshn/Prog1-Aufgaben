@@ -16,7 +16,6 @@ public class Spiegeln {
         String out = "";
         while (!st.isEmpty()) {
             out += st.pop();
-            System.out.println(out);
         }
         return out;
     }
