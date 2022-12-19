@@ -50,9 +50,8 @@ public class WebShop {
                 .append(gk.getNachname())
                 .append(", Preisnachlass ")
                 .append(gk.getRabattInProzent()).append(":\n");
-            rabatt = 1-gk.getRabatt();
-            }
-        else {
+            rabatt = 1 - gk.getRabatt();
+        } else {
             out.append("Rechnung fuer ")
                 .append(kunde.getVorname()).append(" ")
                 .append(kunde.getNachname()).append(":\n");
@@ -65,10 +64,10 @@ public class WebShop {
                 Artikel value = lager[j];
                 if ((value != null) && value.getName().equals(artikel)) {
                     if (value.getAnzahl() > 0) {
-                        out.append(value.getName()).append(" : ").append(value.getPreis()*rabatt)
+                        out.append(value.getName()).append(" : ").append(value.getPreis() * rabatt)
                             .append("\n");
                         value.setAnzahl(value.getAnzahl() - 1);
-                        gesamtpreis += value.getPreis()*rabatt;
+                        gesamtpreis += value.getPreis() * rabatt;
                     } else {
                         out.append(artikel).append(" : nicht mehr vorhanden\n");
                     }

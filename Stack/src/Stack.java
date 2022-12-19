@@ -10,7 +10,7 @@ public class Stack {
 
     public void push(Object o) {
         for (int i = 0; i < stack.length; i++) {
-            if(stack[i] == null) {
+            if (stack[i] == null) {
                 stack[i] = o;
                 return;
             }

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AbstrakteZahlen/AbstrakteZahlen.iml" filepath="$PROJECT_DIR$/AbstrakteZahlen/AbstrakteZahlen.iml" />
       <module fileurl="file://$PROJECT_DIR$/Fussball/Fussball.iml" filepath="$PROJECT_DIR$/Fussball/Fussball.iml" />
       <module fileurl="file://$PROJECT_DIR$/Fussballspieler/Fussballspieler.iml" filepath="$PROJECT_DIR$/Fussballspieler/Fussballspieler.iml" />
       <module fileurl="file://$PROJECT_DIR$/Kalender/Kalender.iml" filepath="$PROJECT_DIR$/Kalender/Kalender.iml" />

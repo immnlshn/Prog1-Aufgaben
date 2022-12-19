@@ -5,6 +5,7 @@ public class Hauptgericht extends Gericht {
     public Hauptgericht() {
         verkaufteHauptgerichte++;
     }
+
     @Override
     public double getPreis() {
         return 2.9;

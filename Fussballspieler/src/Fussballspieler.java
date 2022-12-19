@@ -1,23 +1,27 @@
-public abstract class Fussballspieler implements Finanzen{
+public abstract class Fussballspieler implements Finanzen {
+
     private String name;
     private int jahresgehalt;
-    public Fussballspieler(String name){
+
+    public Fussballspieler(String name) {
         this.name = name;
         this.jahresgehalt = 0;
     }
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
-    public int getJahresgehalt(){
+
+    public int getJahresgehalt() {
         return this.jahresgehalt;
     }
 
-    public void gehaltBeziehen(int gehalt){
+    public void gehaltBeziehen(int gehalt) {
         this.jahresgehalt += gehalt;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.name + " " + this.getJahresgehalt();
     }
 }
